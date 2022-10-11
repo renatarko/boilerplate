@@ -10,6 +10,17 @@
     "test": "jest",
     "test:watch": "npm test --watch"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "npm run lint --fix", "npm test --bail"
+    ]
+  },
+
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "next": "12.3.0",
