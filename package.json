@@ -7,19 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src --max-warnings=0",
-    "linter": "npx eslint src",
     "test": "jest",
     "test:watch": "npm test --watch",
     "prepare": "husky install"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "src/**/*": [
-      "npm run lint --fix", "npm test --passWithNoTests"
+      "npm run lint --fix", "npm test --bail"
     ]
   },
   "dependencies": {
